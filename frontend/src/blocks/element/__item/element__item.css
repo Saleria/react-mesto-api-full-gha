@@ -1,0 +1,6 @@
+.element__item {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}

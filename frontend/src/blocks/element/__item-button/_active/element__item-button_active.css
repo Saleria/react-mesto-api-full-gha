@@ -1,0 +1,19 @@
+.element__item-button_active {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url(../../../../images/like_black.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 1);
+    min-width: 22px;
+    min-height: 19px;
+    border: none;
+    transition: all .3s linear;
+    cursor: pointer;
+}
+
+.element__item-button_active:hover {
+    opacity: .5;
+}
