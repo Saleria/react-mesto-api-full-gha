@@ -10,7 +10,7 @@ import { AppContext } from '../context/AppContext.js';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
-import { Routes, Route, useNavigate, BrowserRouter, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import Register from './Register';
 import Login from './Login';
 import ProtectedRouteElement from './ProtectedRoute.js';
