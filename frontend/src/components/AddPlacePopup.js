@@ -1,9 +1,11 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
+import { AppContext } from "../context/AppContext";
 
-function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
+function AddPlacePopup({ isOpen, onAddPlace }) {
     const [name, setName] = React.useState('');
     const [link, setLink] = React.useState('');
+    const { isLoading, closeAllPopups } = React.useContext(AppContext);
 
     React.useEffect(() => {
         setName('');
@@ -29,9 +31,9 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         <PopupWithForm
             name="mesto"
             title="Новое место"
-            buttonText="Создать"
+            buttonText={isLoading ? 'Сохранение...' : 'Создать'}
             isOpen={isOpen}
-            onClose={onClose}
+            onClose={closeAllPopups}
             onSubmit={handleSubmit}>
             <div className="popup__input">
                 <input id="mesto-name"
@@ -63,4 +65,4 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
     )
 }
 
-export default AddPlacePopup;
+export default AddPlacePopup; 

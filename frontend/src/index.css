@@ -43,3 +43,15 @@
 @import url(./blocks/profile/__avatar-edit-button/profile__avatar-edit-button.css);
 @import url(./blocks/element/__item-like/element__item-like.css);
 @import url(./blocks/element/__item-quantity/element__item-quantity.css);
+@import url(./blocks/header/__container/header__container.css);
+@import url(./blocks/header/__registration/header__registration.css);
+@import url(./blocks/header/__subtitle/header__subtitle.css);
+@import url(./blocks/header/__email/header__email.css);
+@import url(./blocks/registration/registration.css);
+@import url(./blocks/registration/__title/registration__title.css);
+@import url(./blocks/registration/__input/registration__input.css);
+@import url(./blocks/registration/__button/registration__button.css);
+@import url(./blocks/registration/__enter/registration__enter.css);
+@import url(./blocks/popup/__tooltip/popup__tooltip.css);
+@import url(./blocks/popup/__title/_tooltip/popup__title_tooltip.css);
+@import url(./blocks/popup/__tooltip-img/popup__tooltip-img.css);

@@ -1,0 +1,11 @@
+.registration__input {
+    margin: 0;
+    padding-top: 30px;
+    min-height: 27px;
+    background-color: #000;
+    outline: none;
+    border: 0 solid #000;
+    border-bottom: 2px solid #CCC;
+    width: 358px;
+    color: #FFF;  
+}

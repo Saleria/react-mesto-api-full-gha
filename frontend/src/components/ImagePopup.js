@@ -1,6 +1,8 @@
 import React from "react";
+import { AppContext } from "../context/AppContext";
 
 function ImagePopup({ card, onClose }) {
+    const { closeAllPopups } = React.useContext(AppContext);
 
     return (
         <section className={`popup popup_type_image ${card ? 'popup_opened' : ''}`}>
@@ -14,7 +16,7 @@ function ImagePopup({ card, onClose }) {
                 </figcaption>
                 <button className="popup__close popup__close_type_img"
                     type="button"
-                    onClick={onClose} />
+                    onClick={closeAllPopups} />
             </figure>
         </section>
     );

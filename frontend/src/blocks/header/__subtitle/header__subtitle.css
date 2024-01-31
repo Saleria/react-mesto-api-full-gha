@@ -1,0 +1,19 @@
+.header__subtitle {
+    color: #FFF;
+    text-align: right;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+    padding-top: 6px;
+    min-width: 56px;
+    transition: all .3s linear;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header__subtitle:hover {
+    opacity: .6;
+}
