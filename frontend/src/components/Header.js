@@ -11,7 +11,7 @@ function Header({ email, onLogOut }) {
                     className="header__logo" />
                 <div className="header__registration">
                     <Routes>
-                        <Route path="/mesto" element={
+                        <Route path="/" element={
                             <>
                                 <p className="header__email">{email}</p>
                                 <Link className="header__subtitle" to="/sign-in" onClick={onLogOut}>Выйти</Link>
