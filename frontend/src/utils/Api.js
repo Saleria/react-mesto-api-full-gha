@@ -14,7 +14,10 @@ class Api {
     getUserInfo() {
         return fetch(`${this._url}/users/me`, {
             method: 'GET',
-            headers: this._headers
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+            }
         })
             .then(this._checkResponse)
     }
@@ -22,7 +25,10 @@ class Api {
     getInitialCards() {
         return fetch(`${this._url}/cards`, {
             method: 'GET',
-            headers: this._headers
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+            }
         })
             .then(this._checkResponse)
     }
@@ -30,7 +36,10 @@ class Api {
     changeUserInfo(data) {
         return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(data)
         })
             .then(this._checkResponse)
@@ -39,7 +48,10 @@ class Api {
     addNewCard(data) {
         return fetch(`${this._url}/cards`, {
             method: 'POST',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(data)
         })
             .then(this._checkResponse)
@@ -48,7 +60,10 @@ class Api {
     deleteCard(cardId) {
         return fetch(`${this._url}/cards/${cardId}`, {
             method: 'DELETE',
-            headers: this._headers
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+            }
         })
             .then(this._checkResponse)
     }
@@ -56,7 +71,10 @@ class Api {
     changeUserAvatar(data) {
         return fetch(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(data)
         })
             .then(this._checkResponse)
@@ -65,7 +83,10 @@ class Api {
     changeLikeState(id, isLiked) {
         return fetch(`${this._url}/cards/${id}/likes`, {
             method: isLiked ? 'DELETE' : 'PUT',
-            headers: this._headers
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+            }
         })
             .then(this._checkResponse)
     }
@@ -74,7 +95,6 @@ class Api {
 const api = new Api({
     url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',
     headers: {
-        authorization: 'ea163726-b6bd-4665-810a-f0a3a6a3d99f',
         'content-type': 'application/json'
     }
 });
