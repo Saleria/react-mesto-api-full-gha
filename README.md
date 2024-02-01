@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.22.106
+IP 51.250.22.106
 
 Frontend https://mesto.saleria.nomoredomainsmonster.ru
 
