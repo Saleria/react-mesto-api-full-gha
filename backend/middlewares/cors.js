@@ -1,5 +1,6 @@
 const allowedCors = [
   'https://mesto.saleria.nomoredomainsmonster.ru',
+  'https://api.mesto.saleria.nomoredomainsmonster.ru',
   'http://mesto.saleria.nomoredomainsmonster.ru',
   'http://localhost:3000',
   'https://localhost:3000',
