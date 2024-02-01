@@ -72,7 +72,7 @@ class Api {
 }
 
 const api = new Api({
-    url: 'https://mesto.nomoreparties.co/v1/cohort-77',
+    url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',
     headers: {
         authorization: 'ea163726-b6bd-4665-810a-f0a3a6a3d99f',
         'content-type': 'application/json'
