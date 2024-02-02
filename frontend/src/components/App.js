@@ -33,16 +33,18 @@ function App() {
 
   React.useEffect(() => {
     handleTokenCheck();
-  }, []);
+  }, [navigate]);
 
-  React.useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()])
+  React.useEffect(() => { 
+    if (loggedIn) {
+      Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userData, initialCardsData]) => {
         setCurrentUser(userData);
         setCards(initialCardsData);
       })
-      .catch(console.error);
-  }, []);
+      .catch(console.error); 
+    }             
+  }, [loggedIn]);
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
@@ -109,7 +111,7 @@ function App() {
     setIsLoading(true);
     api.changeUserInfo(data)
       .then((user) => {
-        setCurrentUser(user);
+        setCurrentUser(user.data);
         closeAllPopups();
       })
       .catch(console.error)
@@ -122,7 +124,7 @@ function App() {
     setIsLoading(true);
     api.changeUserAvatar(data)
       .then((user) => {
-        setCurrentUser(user);
+        setCurrentUser(user.data);
         closeAllPopups();
       })
       .catch(console.error)
@@ -216,7 +218,7 @@ function App() {
         if (res) {
           setLoggedIn(true);
           navigate('/mesto', { replace: true });
-          setUserEmail(res.data.email);
+          setUserEmail(res.email);
         }
       }).catch((error) => {
         if (error.status === 400) {
