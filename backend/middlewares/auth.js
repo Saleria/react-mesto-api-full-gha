@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const Unauthorized = require('../errors/unauthorized-err');
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
