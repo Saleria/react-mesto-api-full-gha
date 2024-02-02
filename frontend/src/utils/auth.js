@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://api.mesto.saleria.nomoredomainsmonster.ru';
-
+require('dotenv').config();
 function checkResponse(res) {
     if (res.ok) {
         return res.json();
