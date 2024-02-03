@@ -153,7 +153,7 @@ function App() {
   function handleLogOut() {
     setLoggedIn(false);
     setUserEmail('');
-    localStorage.removeItem('jwt');
+    localStorage.removeItem('token');
     navigate("/sign-in", { replace: true });
   }
 
@@ -195,6 +195,7 @@ function App() {
     auth.authorize(formValue.email, formValue.password)
       .then((data) => {
         if (data.token) {
+          localStorage.setItem('jwt', data.token);
           setUserEmail(formValue.email)
           setFormValue({ email: '', password: '' });
           handleLogin();
