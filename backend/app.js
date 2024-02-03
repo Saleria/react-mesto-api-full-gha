@@ -29,10 +29,8 @@ const corsOptions = {
   origin: allowedCors,
   credentials: true,
 };
-
 app.use(cors(corsOptions));
 app.use(helmet());
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
