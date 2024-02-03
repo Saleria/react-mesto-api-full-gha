@@ -80,9 +80,9 @@ class Api {
             .then(this._checkResponse)
     }
 
-    changeLikeState(id, isLiked) {
-        return fetch(`${this._url}/cards/${id}/likes`, {
-            method: isLiked ? 'PUT' : 'DELETE',
+    changeLikeState(_id, isLiked) {
+        return fetch(`${this._url}/cards/${_id}/likes`, {
+            method: isLiked ? 'DELETE' : 'PUT',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
@@ -99,4 +99,4 @@ const api = new Api({
     }
 });
 
-export default api; 
+export default api;
