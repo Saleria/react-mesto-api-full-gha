@@ -73,6 +73,9 @@ class Api {
 
 const api = new Api({
     url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',
+    headers: {
+        "Content-Type": "application/json",
+    }
 });
 
 export default api; 
