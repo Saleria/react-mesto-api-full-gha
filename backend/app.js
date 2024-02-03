@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 // eslint-disable-next-line import/no-extraneous-dependencies
-// const cors = require('cors');
+const cors = require('cors');
 const NotFoundError = require('./errors/not-found-err');
 const auth = require('./middlewares/auth');
 const { login } = require('./controllers/user');
@@ -12,7 +12,7 @@ const { createUser } = require('./controllers/user');
 const { loginValidatoin, createUserValidation } = require('./middlewares/validator');
 const errorHandler = require('./middlewares/error-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
+// const cors = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -33,7 +33,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 //  exposedHeaders: 'Authorization',
 // };
 
-app.use(cors);
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
