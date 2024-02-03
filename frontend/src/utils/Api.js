@@ -15,6 +15,7 @@ class Api {
         return fetch(`${this._url}/users/me`, {
             method: 'GET',
             headers: this._headers,
+            credentials:"include"
         })
             .then(this._checkResponse)
     }
@@ -23,6 +24,7 @@ class Api {
         return fetch(`${this._url}/cards`, {
             method: 'GET',
             headers: this._headers,
+            credentials:"include"
         })
             .then(this._checkResponse)
     }
@@ -30,7 +32,8 @@ class Api {
     changeUserInfo(data) {
         return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
-            hheaders: this._headers,
+            headers: this._headers,
+            credentials:"include",
             body: JSON.stringify(data)
         })
             .then(this._checkResponse)
@@ -40,6 +43,7 @@ class Api {
         return fetch(`${this._url}/cards`, {
             method: 'POST',
             headers: this._headers,
+            credentials:"include",
             body: JSON.stringify(data)
         })
             .then(this._checkResponse)
@@ -49,6 +53,7 @@ class Api {
         return fetch(`${this._url}/cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers,
+            credentials:"include"
         })
             .then(this._checkResponse)
     }
@@ -57,6 +62,7 @@ class Api {
         return fetch(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
+            credentials:"include",
             body: JSON.stringify(data)
         })
             .then(this._checkResponse)
@@ -66,6 +72,7 @@ class Api {
         return fetch(`${this._url}/cards/${id}/likes`, {
             method: isLiked ? 'PUT' : 'DELETE',
             headers: this._headers,
+            credentials:"include"
         })
             .then(this._checkResponse)
     }
@@ -75,8 +82,8 @@ const api = new Api({
     url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',
     headers: {
         "Content-Type": "application/json",
-        "Autorization": `Bearer ${localStorage.getItem('jwt')}`
-    }
+        "Autorization": `Bearer ${localStorage.getItem('jwt')}`,        
+    },    
 });
 
 export default api; 
