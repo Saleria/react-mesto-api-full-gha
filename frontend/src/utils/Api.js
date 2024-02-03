@@ -17,7 +17,7 @@ class Api {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-            }
+            },
         })
             .then(this._checkResponse)
     }
@@ -28,7 +28,7 @@ class Api {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-            }
+            },
         })
             .then(this._checkResponse)
     }
@@ -63,7 +63,7 @@ class Api {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-            }
+            },
         })
             .then(this._checkResponse)
     }
@@ -94,9 +94,6 @@ class Api {
 
 const api = new Api({
     url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',
-    headers: {
-        'content-type': 'application/json'
-    }
 });
 
 export default api; 
