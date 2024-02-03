@@ -33,7 +33,15 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 //  exposedHeaders: 'Authorization',
 // };
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://localhost:3000',
+    'https://mesto.saleria.nomoredomainsmonster.ru',
+    'http://mesto.saleria.nomoredomainsmonster.ru',
+  ],
+  allowedHeaders: ['Accept', 'Content-Type', 'Access-Control-Allow-Origin', 'Origin', 'Authorization'],
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
