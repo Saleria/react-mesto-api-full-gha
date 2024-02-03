@@ -20,7 +20,6 @@ app.use(cors);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//l
 app.use(requestLogger);
 
 app.get('/crash-test', () => {
