@@ -19,21 +19,21 @@ const app = express();
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
-// const allowedCors = [
-// 'https://mesto.saleria.nomoredomainsmonster.ru',
-// 'https://api.mesto.saleria.nomoredomainsmonster.ru',
-// 'http://mesto.saleria.nomoredomainsmonster.ru',
-// 'http://localhost:3000',
-// 'https://localhost:3000',
-// ];
-// const corsOptions = {
-// origin: allowedCors,
-// methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-// allowedHeaders: 'Accept,Content-Type,Origin,Authorization',
-//  exposedHeaders: 'Authorization',
-// };
+const allowedCors = [
+  'https://mesto.saleria.nomoredomainsmonster.ru',
+  'https://api.mesto.saleria.nomoredomainsmonster.ru',
+  'http://mesto.saleria.nomoredomainsmonster.ru',
+  'http://localhost:3000',
+  'https://localhost:3000',
+];
+const corsOptions = {
+  origin: allowedCors,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Accept, Content-Type, Origin, Authorization, Access-Control-Allow-Origin',
+  exposedHeaders: 'Authorization',
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(helmet());
 
 app.use(bodyParser.json());

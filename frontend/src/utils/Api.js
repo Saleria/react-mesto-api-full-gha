@@ -75,6 +75,7 @@ const api = new Api({
     url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',
     headers: {
         "Content-Type": "application/json",
+        "Autorization": `Bearer ${localStorage.getItem('jwt')}`
     }
 });
 

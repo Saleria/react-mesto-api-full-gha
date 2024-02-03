@@ -175,7 +175,7 @@ function App() {
     auth.register(formValue.email, formValue.password).then((res) => {
       if (res) {
         setRegistrationTooltip("success");
-        navigate('/sign-in');
+        navigate('/sign-in', {replace: true});
       }
     }).catch((err) => {
       if (err.status === 400) {
@@ -194,13 +194,12 @@ function App() {
     }
     auth.authorize(formValue.email, formValue.password)
       .then((data) => {
-        if (data.token) {
           localStorage.setItem('jwt', data.token);
           setUserEmail(formValue.email)
           setFormValue({ email: '', password: '' });
           handleLogin();
           navigate('/mesto', { replace: true });
-        }
+        
       }).catch((err) => {
         if (err.status === 400) {
           console.log('не передано одно из полей');
@@ -212,9 +211,9 @@ function App() {
       });
   }
 
-  function handleTokenCheck() {
-    const token = localStorage.getItem('jwt');
-    if (token) {
+  function handleTokenCheck() {    
+    if (localStorage.getItem('jwt')) {
+      const token = localStorage.getItem('jwt');
       auth.checkToken(token).then((res) => {
         if (res) {
           setLoggedIn(true);
