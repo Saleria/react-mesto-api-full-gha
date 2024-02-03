@@ -35,15 +35,15 @@ function App() {
     handleTokenCheck();
   }, [navigate]);
 
-  React.useEffect(() => { 
+  React.useEffect(() => {
     if (loggedIn) {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
-      .then(([userData, initialCardsData]) => {
-        setCurrentUser(userData);
-        setCards(initialCardsData);
-      })
-      .catch(console.error); 
-    }             
+        .then(([userData, initialCardsData]) => {
+          setCurrentUser(userData);
+          setCards(initialCardsData);
+        })
+        .catch(console.error);
+    }
   }, [loggedIn]);
 
   function handleEditProfileClick() {
@@ -153,7 +153,7 @@ function App() {
   function handleLogOut() {
     setLoggedIn(false);
     setUserEmail('');
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwt');
     navigate("/sign-in", { replace: true });
   }
 
@@ -175,7 +175,7 @@ function App() {
     auth.register(formValue.email, formValue.password).then((res) => {
       if (res) {
         setRegistrationTooltip("success");
-        navigate('/sign-in', {replace: true});
+        navigate('/sign-in');
       }
     }).catch((err) => {
       if (err.status === 400) {
@@ -194,12 +194,12 @@ function App() {
     }
     auth.authorize(formValue.email, formValue.password)
       .then((data) => {
-          localStorage.setItem('jwt', data.token);
+        if (data.token) {
           setUserEmail(formValue.email)
           setFormValue({ email: '', password: '' });
           handleLogin();
           navigate('/mesto', { replace: true });
-        
+        }
       }).catch((err) => {
         if (err.status === 400) {
           console.log('не передано одно из полей');
@@ -211,10 +211,10 @@ function App() {
       });
   }
 
-  function handleTokenCheck() {    
-    if (localStorage.getItem('jwt')) {
-      const token = localStorage.getItem('jwt');
-      auth.checkToken(token).then((res) => {
+  function handleTokenCheck() {
+    const jwt = localStorage.getItem('jwt');
+    if ('jwt') {
+      auth.checkToken(jwt).then((res) => {
         if (res) {
           setLoggedIn(true);
           navigate('/mesto', { replace: true });

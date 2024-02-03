@@ -15,9 +15,9 @@ class Api {
         return fetch(`${this._url}/users/me`, {
             method: 'GET',
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-                "Autorization": `Bearer ${localStorage.getItem('jwt')}`,        
-            },
+            }
         })
             .then(this._checkResponse)
     }
@@ -26,9 +26,9 @@ class Api {
         return fetch(`${this._url}/cards`, {
             method: 'GET',
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-                "Autorization": `Bearer ${localStorage.getItem('jwt')}`,        
-            },
+            }
         })
             .then(this._checkResponse)
     }
@@ -37,8 +37,8 @@ class Api {
         return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-                "Autorization": `Bearer ${localStorage.getItem('jwt')}`,        
             },
             body: JSON.stringify(data)
         })
@@ -49,8 +49,8 @@ class Api {
         return fetch(`${this._url}/cards`, {
             method: 'POST',
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-                "Autorization": `Bearer ${localStorage.getItem('jwt')}`,        
             },
             body: JSON.stringify(data)
         })
@@ -61,9 +61,9 @@ class Api {
         return fetch(`${this._url}/cards/${cardId}`, {
             method: 'DELETE',
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-                "Autorization": `Bearer ${localStorage.getItem('jwt')}`,        
-            },
+            }
         })
             .then(this._checkResponse)
     }
@@ -72,8 +72,8 @@ class Api {
         return fetch(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-                "Autorization": `Bearer ${localStorage.getItem('jwt')}`,        
             },
             body: JSON.stringify(data)
         })
@@ -84,17 +84,19 @@ class Api {
         return fetch(`${this._url}/cards/${id}/likes`, {
             method: isLiked ? 'PUT' : 'DELETE',
             headers: {
+                Authorization: `Bearer ${localStorage.getItem('jwt')}`,
                 "Content-Type": "application/json",
-                "Autorization": `Bearer ${localStorage.getItem('jwt')}`,   
-            },
+            }
         })
             .then(this._checkResponse)
     }
 }
 
 const api = new Api({
-    url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',      
+    url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',
+    headers: {
+        'content-type': 'application/json'
+    }
 });
 
-// экспорт апи
 export default api; 

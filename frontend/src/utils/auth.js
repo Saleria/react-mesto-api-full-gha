@@ -35,15 +35,14 @@ export const authorize = (email, password) => {
         })
 };
 
-export const checkToken = (jwt) => {
+export const checkToken = (token) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${jwt}`,
-            credentials: 'include',
-        },        
+            'Authorization': `Bearer ${token}`,
+        }
     }).then(checkResponse)
         .then((data) => {
             return data;
