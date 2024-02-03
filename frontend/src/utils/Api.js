@@ -96,4 +96,5 @@ const api = new Api({
     url: 'https://api.mesto.saleria.nomoredomainsmonster.ru',      
 });
 
+// экспорт апи
 export default api; 
